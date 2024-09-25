@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecteur PDF</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <div class="toolbar d-flex">
+        <div id="page-info" class="page-info">Page <span id="page-num"></span> / <span id="page-count"></span></div>
+        <div class="buttons">
+            <button id="prev-page" class="btn btn-info">Page précédente</button>
+            <button id="next-page" class="btn btn-info">Page suivante</button>
+            <button id="single-page-view" class="btn btn-primary">Vue 1 page</button>
+            <button id="double-page-view" class="btn btn-secondary">Vue 2 pages</button>
+        </div>
+    </div>
+    <div id="pdf-container" class="pdf-container">
+        <canvas id="pdf-render-left" class="pdf-left"></canvas>
+        <canvas id="pdf-render-right" class="pdf-right" style="display: none;"></canvas>
+    </div>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.0.279/pdf.min.js"></script>
+<script>
+    // Configuration du worker
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.0.279/pdf.worker.min.js';
+</script>
+
+<script src="script.js"></script>
+</body>
+</html>
